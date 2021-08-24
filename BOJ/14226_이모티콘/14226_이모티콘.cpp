@@ -1,32 +1,53 @@
 #include <iostream>
-#include <cstdlib>
-#include <cstring>
+#include <queue>
 #include <algorithm>
-#define MAX_VALUE 987654321
+#define MAX_VALUE 1001
 using namespace std;
+
+struct component {
+	int display, clipboard, time;	
+};
 
 int main(int argc, char *argv[])
 {
 	int s;
-	int num;
-	int arr[1001][10];
+	int d, c, t;
+	int result = 0;
+	bool visit[MAX_VALUE][MAX_VALUE];
+	queue<component> q;
 	
 	cin >> s;
 	
-	memset(arr, MAX_VALUE, sizeof(arr);
+	q.push({1, 0, 0});
+	visit[1][0] = true;
 	
-	for(int i=1; i<1001; ++i) {
-		arr[i][1] = i;
-	}
-	
-	num = 2;
-	for(int i=2; i<10; ++i){
-		for(int j=2; j<1001; ++j){
-			if(arr[j][i-1] != MAX_VALUE){
-				min(arr[num + 2
+	while(!q.empty()) {
+		d = q.front().display;
+		c = q.front().clipboard;
+		t = q.front().time;
+		q.pop();
+		
+		if(d == s) {
+			result = t;
+			break;
+		}
+		
+		if(d < MAX_VALUE) {
+			if(!visit[d][d]) {
+				visit[d][d] = true;
+				q.push({d, d, t+1});
+			} 
+			if(c > 0 && d + c < MAX_VALUE) {
+				if(!visit[d+c][c]) {
+					visit[d+c][c] = true;
+					q.push({d+c, c, t+1});
+				}
+			}
+			if(!visit[d-1][c]){
+				visit[d-1][c] = true;
+				q.push({d-1, c, t+1});	
 			}
 		}
-		num *= num;
 	}
 	
 	cout << result << endl;
