@@ -4,6 +4,18 @@
 #define MAX_VALUE 987654321
 using namespace std;
 
+struct pq_data
+{
+	int node, cost;
+};
+
+struct compare {
+	bool operator()(pq_data a, pq_data b)
+		{
+			return a.cost < b.cost;
+		}
+};
+
 int main(int argc, char *argv[])
 {
 	int n, m;
@@ -17,7 +29,7 @@ int main(int argc, char *argv[])
 	vector<vector<pair<int, int> > > v;
 	vector<int> d;
 	vector<int> pre;
-	queue<int> q;
+	priority_queue<pq_data, vector<pq_data>, compare> pq;
 		
 	cin >> n >> m;
 	
@@ -34,19 +46,22 @@ int main(int argc, char *argv[])
 	cin >> start >> destination;
 	
 	d[start] = 0;
-	q.push(start);
-
-	
-	while(!q.empty()){
-		num = q.front(); 
-		q.pop();
-		for(int i=0; i<v[num].size(); ++i){
-			go = v[num][i].first;
-			if(d[go] > d[num] + v[num][i].second){
-				d[go] = d[num] + v[num][i].second;
-				pre[go] = num;
-				q.push(go);
-			}		
+	pq.push({start, 0});
+	while(!pq.empty()){
+		now = pq.top().node; 
+		cost = pq.top().cost;
+		pq.pop();
+		for(int i=0; i<v[now].size(); ++i){
+			next = v[now][i].first;
+			if(d[next] > d[now] + v[now][i].second){
+				d[next] = d[now] + v[now][i].second;
+				pq.push({next,  d[next]});	
+				pre[next] = now;
+			}
+		}
+		
+		if(go == destination){
+			break;
 		}	
 	}
 	
