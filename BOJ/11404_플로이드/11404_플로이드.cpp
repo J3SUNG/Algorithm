@@ -14,7 +14,6 @@ int main(int argc, char *argv[]){
 	
 	for(int i=0; i<m; ++i){
 		cin >> now >> next >> cost;
-		
 		v[now][next] = min(v[now][next], cost);
 	}
 	
