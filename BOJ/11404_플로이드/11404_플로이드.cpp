@@ -1,4 +1,5 @@
 #include <iostream>
+#include <algorithm>
 #include <vector>
 #define MAX_VALUE 987654321
 using namespace std;
