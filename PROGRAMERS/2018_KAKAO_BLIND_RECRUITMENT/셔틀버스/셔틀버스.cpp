@@ -7,7 +7,6 @@ using namespace std;
 
 int convert(int time, int num, string type)
 {
-    cout << time << " " << num << " " << type << endl;
     if(type == "plus"){
         if((time % 100) + num >= 60){
             time += 100;
@@ -23,7 +22,6 @@ int convert(int time, int num, string type)
             time -= num;
         }
     }   
-    cout << time << endl;
     return time;
 }
 
@@ -49,20 +47,17 @@ string solution(int n, int t, int m, vector<string> timetable) {
         prevPossible = false;
         for(int j=0; j<m; ++j){
             ++index;
-            cout << time << " " << tt[index] << " " << index << " " << tt.size() << endl;
             if(time < tt[index] || index == tt.size()){
                 --index;
                 prevPossible = true;
                 break;
             }
-            cout << time << " " << tt[index] << "@@"<< endl;
         }
         if(prevPossible){
             prevTime = time;
         } else {
             prevTime = convert(tt[index], 1, "minus");
         }
-        cout << prevTime << "!!"<< endl;
         time = convert(time, t, "plus");
     }
     
