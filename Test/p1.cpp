@@ -51,6 +51,9 @@ vector<int> solution(vector<string> id_list, vector<string> report, int k) {
     }
   } 
 
+  for(int i=0; i<answer.size(); ++i){
+    cout << answer[i] << endl;
+  }
   return answer;
 }
 
@@ -61,14 +64,21 @@ int main(int argc, char *argv[])
   vector<string> report;
   id_list.push_back("muzi");
   id_list.push_back("frodo");
-  id_list.push_back("apeach");
-  id_list.push_back("neo");
+  // id_list.push_back("apeach");
+  // id_list.push_back("neo");
+  report.push_back("frodo muzi");  
   report.push_back("muzi frodo");
-  report.push_back("apeach frodo");
   report.push_back("muzi frodo");
-  report.push_back("frodo neo");
-  report.push_back("muzi neo");
-  report.push_back("apeach muzi");
+  report.push_back("muzi frodo");
+  report.push_back("frodo muzi");  
+  report.push_back("muzi frodo");
+  report.push_back("muzi frodo");
+  // report.push_back("frodo neo");
+  // // report.push_back("muzi neo");
+  // report.push_back("apeach muzi");
+  // report.push_back("apeach muzi");
+  // report.push_back("apeach muzi");
+  // report.push_back("apeach muzi");
   
   solution(id_list, report, k);
 
