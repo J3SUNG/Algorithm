@@ -10,10 +10,17 @@
     {
       "label": "save and compile for C++",
       "command": "g++",
-      "args": ["${file}", "-o", "${fileDirname}/${fileBasenameNoExtension}"],
+      "args": [
+        "${file}",
+        "-o",
+        "${fileDirname}/${fileBasenameNoExtension}"
+      ],
       "group": "build",
       "problemMatcher": {
-        "fileLocation": ["relative", "${workspaceRoot}"],
+        "fileLocation": [
+          "relative",
+          "${workspaceRoot}"
+        ],
         "pattern": {
           "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning error):\\s+(.*)$",
           "file": 1,
@@ -27,10 +34,17 @@
     {
       "label": "save and compile for C",
       "command": "gcc",
-      "args": ["${file}", "-o", "${fileDirname}/${fileBasenameNoExtension}"],
+      "args": [
+        "${file}",
+        "-o",
+        "${fileDirname}/${fileBasenameNoExtension}"
+      ],
       "group": "build",
       "problemMatcher": {
-        "fileLocation": ["relative", "${workspaceRoot}"],
+        "fileLocation": [
+          "relative",
+          "${workspaceRoot}"
+        ],
         "pattern": {
           "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning error):\\s+(.*)$",
           "file": 1,
@@ -45,7 +59,10 @@
       "label": "execute",
       "command": "cmd",
       "group": "test",
-      "args": ["/C", "${fileDirname}\\${fileBasenameNoExtension}"]
+      "args": [
+        "/C",
+        "${fileDirname}\\${fileBasenameNoExtension}"
+      ]
     },
     {
       "type": "cppbuild",
@@ -60,12 +77,33 @@
       "options": {
         "cwd": "C:/MinGW/bin"
       },
-      "problemMatcher": ["$gcc"],
+      "problemMatcher": [
+        "$gcc"
+      ],
+      "group": "build",
+      "detail": "컴파일러: C:/MinGW/bin/g++.exe"
+    },
+    {
+      "type": "cppbuild",
+      "label": "C/C++: g++.exe 활성 파일 빌드 ver(1)",
+      "command": "C:/MinGW/bin/g++.exe",
+      "args": [
+        "-g",
+        "${file}",
+        "-o",
+        "${fileDirname}\\${fileBasenameNoExtension}.exe"
+      ],
+      "options": {
+        "cwd": "C:/MinGW/bin"
+      },
+      "problemMatcher": [
+        "$gcc"
+      ],
       "group": {
         "kind": "build",
         "isDefault": true
       },
-      "detail": "컴파일러: C:/MinGW/bin/g++.exe"
+      "detail": "디버거에서 생성된 작업입니다."
     }
   ]
 }

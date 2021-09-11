@@ -9,7 +9,9 @@ using namespace std;
 
 int main(int argc, char *argv[])
 {
-  cout << "Hello, World!" << endl;
+  int i = 0;
+  cout << "Hello, World!" << i << endl;
 
+  i = 1;
   return 0;
 }
