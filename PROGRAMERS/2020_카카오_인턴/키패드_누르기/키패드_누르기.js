@@ -17,7 +17,7 @@ function solution(numbers, hand) {
     find = false;
     for (j = 0; j < 3; ++j) {
       for (k = 0; k < 4; ++k) {
-        if (numbers[i] == keypad[j][k]) {
+        if (numbers[i] === keypad[j][k]) {
           find = true;
           break;
         }
@@ -26,11 +26,11 @@ function solution(numbers, hand) {
         break;
       }
     }
-    if (j == 0) {
+    if (j === 0) {
       leftHandCenter = false;
       nowLeft = k;
       answer += "L";
-    } else if (j == 2) {
+    } else if (j === 2) {
       rightHandCenter = false;
       nowRight = k;
       answer += "R";
@@ -48,7 +48,7 @@ function solution(numbers, hand) {
         nowRight = k;
         answer += "R";
       } else {
-        if (hand == "left") {
+        if (hand === "left") {
           leftHandCenter = true;
           nowLeft = k;
           answer += "L";
