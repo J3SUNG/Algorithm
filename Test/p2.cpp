@@ -28,7 +28,6 @@ string changeNumber(long num, int n)
     num /= n;
   }
   value = arr[num % n] + value;
-
   return value;
 }
 
