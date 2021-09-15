@@ -50,7 +50,6 @@ vector<int> solution(vector<string> id_list, vector<string> report, int k) {
       prevStr = report[i];
     }
   } 
-
   for(int i=0; i<answer.size(); ++i){
     cout << answer[i] << endl;
   }
