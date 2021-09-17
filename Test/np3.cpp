@@ -39,7 +39,6 @@ vector<int> getTheGroups(int n, vector<string> queryType, vector<int> students1,
   for(int i=0; i<100001; ++i){
     arr[i] = i;
   }
-
   for(int i=0; i<queryType.size(); ++i){
     if(queryType[i] == "Friend"){
       funcSet(students1[i], students2[i]);
