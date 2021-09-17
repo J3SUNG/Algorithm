@@ -20,7 +20,6 @@ long paperCuttings(int textLength, vector<int> starting, vector<int> ending) {
     v.push_back({starting[i], ending[i]});
   }    
   sort(v.begin(), v.end(), compare);
-  
   for(int i=0; i<v.size() - 1; ++i){
     if(v[i].first == v[i+1].first && v[i].second == v[i+1].second){
       continue;
