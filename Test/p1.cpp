@@ -26,7 +26,6 @@ vector<int> solution(vector<string> id_list, vector<string> report, int k) {
   vector<int> answer(id_list.size());
   
   sort(report.begin(), report.end());
-
   for(int i=0; i<report.size(); ++i){
     if(report[i] == prevStr){
       continue;
@@ -36,7 +35,6 @@ vector<int> solution(vector<string> id_list, vector<string> report, int k) {
     ++user[index];
     prevStr = report[i];
   } 
-
   for(int i=0; i<report.size(); ++i){
     if(report[i] == prevStr){
       continue;
