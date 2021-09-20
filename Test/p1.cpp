@@ -76,7 +76,6 @@ int main(int argc, char *argv[])
   // report.push_back("apeach muzi");
   // report.push_back("apeach muzi");
   // report.push_back("apeach muzi");
-  
   solution(id_list, report, k);
 
   return 0;
