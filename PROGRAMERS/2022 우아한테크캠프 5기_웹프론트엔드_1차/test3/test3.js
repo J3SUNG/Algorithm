@@ -21,7 +21,6 @@ function dfs(i, j, alp, board) {
       num += dfs(y, x, alp, board);
     }
   }
-
   return num;
 }
 
