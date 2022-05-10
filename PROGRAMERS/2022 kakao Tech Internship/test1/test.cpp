@@ -39,10 +39,6 @@ void calc(char c, int num)
 string solution(vector<string> survey, vector<int> choices) {
     string answer = "";
     string type = "RTCFJMAN";
-    // R T
-    // C F
-    // J M
-    // A N
 
     for(int i=0; i<survey.size(); ++i){
         if(choices[i] < 4) {
