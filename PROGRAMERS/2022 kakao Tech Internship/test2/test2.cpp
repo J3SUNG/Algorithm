@@ -38,9 +38,6 @@ int solution(vector<int> queue1, vector<int> queue2) {
             // sum1 -= queue1[0];
             // queue1.erase(queue1.begin());
         }
-        // if(answer > 20000){
-        //     return -1;
-        // }
         if(answer > end){
             return -1;
         }
