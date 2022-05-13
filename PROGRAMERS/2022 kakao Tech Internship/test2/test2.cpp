@@ -29,10 +29,6 @@ int solution(vector<int> queue1, vector<int> queue2) {
             q2.push(q1.front());
             sum1 -= q1.front();
             q1.pop();
-            // sum2 += queue1[0];
-            // queue2.push_back(queue1[0]);
-            // sum1 -= queue1[0];
-            // queue1.erase(queue1.begin());
         }
         if(answer > end){
             return -1;
