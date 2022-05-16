@@ -5,7 +5,6 @@ using namespace std;
 
 vector<vector<int>> solution(vector<vector<int>> rc, vector<string> operations){
     vector<vector<int>> answer(rc.size(), vector<int>(rc[0].size()));
-
     for(int i=0; i<operations.size(); ++i){
         if(operations[i] == "ShiftRow"){
             for(int j=0; j<rc.size(); ++j){
