@@ -3,7 +3,6 @@
 #include <cstring>
 #include <string>
 #include <vector>
-
 using namespace std;
 
 int solution(int n, vector<int> times) {
