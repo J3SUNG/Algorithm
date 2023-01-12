@@ -49,7 +49,6 @@ class Solution
                     mul = small[j] * big[i+j];
                     sum += mul;      
                 }                
-                //System.out.printf("%d ", sum);  
                 ans = Math.max(sum, ans);
             }
             System.out.printf("#%d %d%n", test_case, ans);
