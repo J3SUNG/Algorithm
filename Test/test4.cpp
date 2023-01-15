@@ -46,7 +46,7 @@ vector<string> solution(vector<string> arr, vector<string> processes) {
         if(useTime == time){
             check = false;
         }
-        if(!check) { // read, write 가능
+        if(!check) { 
             if(write.size() > 0 && stoi(write[0][1]) <= time){
                 check = true;
                 if(useTime <= time){
