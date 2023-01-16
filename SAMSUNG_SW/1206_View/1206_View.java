@@ -31,7 +31,6 @@ class Solution
                 } else {
                     continue;
                 }
-                //System.out.printf("!!%d %d %d%n", arr[i], Math.max(left, right), arr[i] - Math.max(left, right));    
                 answer += arr[i] - Math.max(left, right);
             }
             System.out.printf("#%d %d%n", test_case, answer);
