@@ -1,46 +1,59 @@
-package com.ssafy.ws.step;
-
-import java.util.Scanner;
-
-public class test {
-  public static int[][] arr;
-  public static int n;
-  public static int ans = Integer.MAX_VALUE;
-  public static void dfs(int bit, int index, int cnt) {	  
-    if(n / 2 == cnt){
-      int a = 0;
-      int b = 0;
-      for(int i=0; i<n; ++i){
-        for(int j=i+1; j<n; ++j){
-          if(((1<<i & bit) == 0) && ((1<<j & bit) == 0)){
-            a += arr[i][j];
-            a += arr[j][i];
-          } else if(((1<<i & bit) != 0) && ((1<<j & bit) != 0)) {
-            b += arr[i][j];
-            b += arr[j][i];
-          }
-        }
+import java.util.*;
+import java.io.*;
+ 
+public class Main {
+  static int n;
+  static int[][] arr;
+  static boolean[] team;
+  static int ans = Integer.MAX_VALUE;
+    
+  public static void main(String args[]) throws Exception {
+    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+      
+    n = Integer.parseInt(br.readLine());
+      
+    arr = new int[n][n];
+    team = new boolean[n];
+      
+    for(int i=0; i<n; ++i){
+      StringTokenizer str = new StringTokenizer(br.readLine());
+      for(int j=0; j<n; ++j){
+        arr[i][j] = Integer.parseInt(str.nextToken());
       }
-      ans = Math.min(ans, Math.abs(a-b));
+    }
+      
+    dfs(0, 0);
+ 
+    System.out.println(ans);
+  }
+  static void dfs(int index, int cnt) {
+    if(n / 2 == cnt){
+      diff();
       return;
     }
+    
     for(int i=index; i<n; ++i){
-      dfs((bit | 1<<i), index+1, cnt+1);
+      team[i] = true;
+      dfs(i+1, cnt+1);
+      team[i] = false;
     }
   }
-
-  public static void main(String args[]) throws Exception
-  {
-    Scanner sc = new Scanner(System.in);
-    n = sc.nextInt();
-    arr = new int[n][n];
-    for(int i=0; i<n; ++i){
-      for(int j=0; j<n; ++j){
-        arr[i][j] = sc.nextInt();
+  
+  static void diff() {
+    int a = 0;
+    int b = 0;
+  
+    for(int i=0; i<n-1; ++i){
+      for(int j=i+1; j<n; ++j){
+        if(team[i] == true && team[j] == true){
+          a += arr[i][j];
+          a += arr[j][i];
+        } else if (team[i] == false && team[j] == false){
+          b += arr[i][j];
+          b += arr[j][i];
+        }
       }
     }
-    dfs(1, 1, 1);
-
-    System.out.printf("%d%n", ans);
+    ans = Math.min(ans, Math.abs(a-b));
   }
 }
