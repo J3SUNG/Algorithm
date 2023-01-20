@@ -22,9 +22,9 @@ class Solution
             for(int i=0; i<N; ++i){
                 dp[i] = Math.max(dp[i], 1);
                 for(int j=i; j<N; ++j){
-                       if(arr[j] > arr[i]){
-                            dp[j] = Math.max(dp[j], dp[i] + 1);   
-                       }
+                    if(arr[j] > arr[i]){
+                        dp[j] = Math.max(dp[j], dp[i] + 1);   
+                    }
                 }
             }
             for(int i=0; i<N; ++i){
