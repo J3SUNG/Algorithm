@@ -7,8 +7,8 @@ class Solution
     {
         int T;
         int width = 0; //511
-        int[] length = new int[9]; // 511
-        int[] square = new int[3]; // 511
+        int[] length = new int[9]; 
+        int[] square = new int[3]; 
         String S;
         boolean chk = false;
          
