@@ -17,8 +17,7 @@ public class Main {
 				DP[i+day[i]] = Math.max(DP[i+day[i]], DP[i] +pay[i]);							
 			}
 			DP[i+1] = Math.max(DP[i+1], DP[i]);
-		}
-		
+		}		
 		System.out.println(DP[n]);
 	}
 
