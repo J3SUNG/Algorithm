@@ -57,14 +57,12 @@ public class Main {
 					while(!qy.isEmpty()) {
 						y = qy.poll();
 						x = qx.poll();
-						++cnt;
-						
+						++cnt;						
 						if(cnt >= vNum) {
 							qy.poll();
 							qx.poll();
 							continue;
-						}
-						
+						}						
 						for(int l=0; l<4; ++l) {
 							if(nmap[y + dy[l]][x + dx[l]] == 3) {
 								nmap[y + dy[l]][x + dx[l]] = 1; 
