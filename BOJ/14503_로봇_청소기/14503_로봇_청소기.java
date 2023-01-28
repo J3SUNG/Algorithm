@@ -7,7 +7,7 @@ public class Main{
     int y, x;
     int nextY, nextX;
     int ndy, ndx;
-    int d; // 북0, 동1, 남2, 서3
+    int d; //북0, 동1, 남2, 서3
     int[][] arr;
     int []dy = {-1, 0, 1, 0};
     int []dx = {0, 1, 0, -1};
