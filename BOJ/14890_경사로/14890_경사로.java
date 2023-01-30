@@ -35,7 +35,7 @@ public class Main {
 						down = false;
 						cnt = 0;
 					}
-				} else if(compare == map[i][j] + 1) { // down
+				} else if(compare == map[i][j] + 1) { //down
 					if(l!=1 && down) {
 						chk = true;
 						break;						
@@ -43,7 +43,7 @@ public class Main {
 					cnt = 0;
 					compare = map[i][j];
 					down = true;
-				} else if(compare == map[i][j] - 1) { // up
+				} else if(compare == map[i][j] - 1) { //up
 					if(down) {
 						chk = true;
 						break;
@@ -75,7 +75,7 @@ public class Main {
 						down = false;
 						cnt = 0;
 					}
-				} else if(compare == map[i][j] + 1) { // down
+				} else if(compare == map[i][j] + 1) { //down
 					if(l!=1 && down) {
 						chk = true;
 						break;						
@@ -83,7 +83,7 @@ public class Main {
 					cnt = 0;
 					compare = map[i][j];
 					down = true;
-				} else if(compare == map[i][j] - 1) { // up
+				} else if(compare == map[i][j] - 1) { //up
 					if(down) {
 						chk = true;
 						break;
