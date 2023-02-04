@@ -18,7 +18,7 @@ public class Main {
 				dir[i][j] = sc.nextInt() - 1;
 			}
 		}
-		dfs(0, 0, map, dir, 0, orderY, orderX);		
+		dfs(0, 0, map, dir, 0, orderY, orderX);
 		
 		System.out.println(ans);
 	}	
