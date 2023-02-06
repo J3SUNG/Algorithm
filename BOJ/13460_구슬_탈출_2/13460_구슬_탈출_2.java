@@ -113,7 +113,7 @@ public class Main {
 					return;
 				}
 			}
-		} else if ((chk && (d == 0 || d == 1)) || (!chk && (d == 2 || d == 3))) {
+		} else if ((chk && (d == 0 || d == 1)) || (!chk && (d == 2 || d == 3))) { // 빨강구슬부터 이동
 			while(true) {
 				int nextBY = nMar.by + dy[d];
 				int nextBX = nMar.bx + dx[d];
