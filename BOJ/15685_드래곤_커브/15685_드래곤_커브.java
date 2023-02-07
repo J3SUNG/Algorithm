@@ -8,7 +8,7 @@ import java.util.StringTokenizer;
 public class Main {
 	static int n;
 	static int ans = 0;
-	static int[] dy = {0, -1, 0, 1}; //동 북 서 남
+	static int[] dy = {0, -1, 0, 1}; //동, 북, 서, 남
 	static int[] dx = {1, 0, -1, 0};
 	static int[] pattern = new int[1024];
 	static int[][] map = new int[101][101];
