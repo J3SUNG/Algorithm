@@ -20,7 +20,7 @@ int main(int argc, char * argv[])
 	}
 	
 	for (int i = N-1; 0 <= i; i--) {
-		while(v[i] < K && value + v[i] <= K) {
+		while(v[i] <= K && value + v[i] <= K) {
 			value += v[i];
 			count++;
 		}
