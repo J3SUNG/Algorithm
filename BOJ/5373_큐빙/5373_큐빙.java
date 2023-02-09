@@ -1,18 +1,16 @@
-package com.ssafy.test2;
-
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.StringTokenizer;
 
-public class test4 {
+public class Main {
 	public static void main(String[] args) throws Exception {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 		StringTokenizer st = new StringTokenizer(br.readLine());
 		int ts = Integer.parseInt(st.nextToken());
-		char[][][] cube = new char[6][3][3];
+		char[][][] cube = new char[6][3][3]; // 위/하양 w, 아래/노랑 y, 앞/빨강 r, 뒤/주황 o, 왼/초록 g, 오/파랑 b
 		while(ts>0) {
 			--ts;
 			Init(cube);
@@ -31,32 +29,54 @@ public class test4 {
 			case 'U':
 				int[] uarr = {3, 4, 1, 5};
 				int[] uchk = {0, 0, 0, 0};
-				int[] uloc = {0, 0, 0, 0};
+				int[] uloc = {2, 0, 0, 0};
 				SideCheck(cube, uarr, uchk, uloc, s);
+				if(s.charAt(1) == '+') {
+					Swap(cube, 5,0,0, 5,0,2);
+					Swap(cube, 3,2,0, 3,2,2);
+				} else {
+					Swap(cube, 3,2,0, 3,2,2);
+					Swap(cube, 4,0,0, 4,0,2);
+				}
 				break;
 			case 'D':
 				int[] darr = {1, 4, 3, 5};
 				int[] dchk = {0, 0, 0, 0};
-				int[] dloc = {2, 2, 2, 2};
-				Swap(cube, 3,0,0, 3,2,0); 
-				Swap(cube, 3,0,1, 3,2,1);
-				Swap(cube, 3,0,2, 3,2,2);
+				int[] dloc = {2, 2, 0, 2};
 				SideCheck(cube, darr, dchk, dloc, s);
-				Swap(cube, 3,0,0, 3,2,0);
-				Swap(cube, 3,0,1, 3,2,1);
-				Swap(cube, 3,0,2, 3,2,2);
+				if(s.charAt(1) == '+') {
+					Swap(cube, 4,2,0, 4,2,2);
+					Swap(cube, 3,0,0, 3,0,2);
+				} else {
+					Swap(cube, 3,0,0, 3,0,2);
+					Swap(cube, 5,2,0, 5,2,2);
+				}
 				break;
 			case 'F':
 				int[] farr = {0, 4, 2, 5};
 				int[] fchk = {0, 1, 0, 1};
 				int[] floc = {2, 2, 0, 0};
 				SideCheck(cube, farr, fchk, floc, s);
+				if(s.charAt(1) == '+') {
+					Swap(cube, 0,2,0, 0,2,2);
+					Swap(cube, 2,0,0, 2,0,2);
+				} else {
+					Swap(cube, 4,0,2, 4,2,2);
+					Swap(cube, 5,0,0, 5,2,0);
+				}
 				break;
 			case 'B':
 				int[] barr = {5, 2, 4, 0};
 				int[] bchk = {1, 0, 1, 0};
 				int[] bloc = {2, 2, 0, 0};
 				SideCheck(cube, barr, bchk, bloc, s);
+				if(s.charAt(1) == '+') {
+					Swap(cube, 4,0,0, 4,2,0);
+					Swap(cube, 5,0,2, 5,2,2);
+				} else {
+					Swap(cube, 0,0,0, 0,0,2);
+					Swap(cube, 2,2,0, 2,2,2);
+				}
 				break;
 			case 'L':
 				int[] larr = {1, 0, 3 ,2};
@@ -137,15 +157,12 @@ public class test4 {
 		cube[a2][b2][c2] = temp;
 	}
 	public static void PrintCube(char[][][] cube) {
-		for(int i=0; i<6; ++i) {
-			for(int j=0; j<3; ++j) {
-				for(int k=0; k<3; ++k) {
-					System.out.printf("%c ", cube[i][j][k]);
-				}
-				System.out.println();
-			}
-			System.out.println();
-		}
+        for(int j=0; j<3; ++j) {
+            for(int k=0; k<3; ++k) {
+                System.out.printf("%c", cube[0][j][k]);
+            }
+            System.out.println();
+        }
 	}
 	public static void Init(char[][][] cube) {
 		for(int i=0; i<6; ++i) {
@@ -173,6 +190,6 @@ public class test4 {
 					}
 				}
 			}
-		}
+		}		
 	}
 }
