@@ -12,7 +12,7 @@ public class test4 {
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 		StringTokenizer st = new StringTokenizer(br.readLine());
 		int ts = Integer.parseInt(st.nextToken());
-		char[][][] cube = new char[6][3][3]; // 위/하양 w, 아래/노랑 y, 앞/빨강 r, 뒤/주황 o, 왼/초록 g, 오/파랑 b
+		char[][][] cube = new char[6][3][3];
 		while(ts>0) {
 			--ts;
 			Init(cube);
@@ -21,7 +21,6 @@ public class test4 {
 			for(int i=0; i<n; ++i) {
 				String s = st.nextToken();
 				MoveCube(cube, s);
-//				ts=0; System.out.println();//디버깅
 			}
 			PrintCube(cube);
 		}
@@ -33,19 +32,13 @@ public class test4 {
 				int[] uarr = {3, 4, 1, 5};
 				int[] uchk = {0, 0, 0, 0};
 				int[] uloc = {0, 0, 0, 0};
-//				Swap(cube, 3,0,0, 3,2,0); // 예외처리
-//				Swap(cube, 3,0,0, 3,2,1);
-//				Swap(cube, 3,0,0, 3,2,2);
 				SideCheck(cube, uarr, uchk, uloc, s);
-//				Swap(cube, 3,0,0, 3,2,0);
-//				Swap(cube, 3,0,1, 3,2,1);
-//				Swap(cube, 3,0,2, 3,2,2);
 				break;
 			case 'D':
 				int[] darr = {1, 4, 3, 5};
 				int[] dchk = {0, 0, 0, 0};
 				int[] dloc = {2, 2, 2, 2};
-				Swap(cube, 3,0,0, 3,2,0); // 예외처리
+				Swap(cube, 3,0,0, 3,2,0); 
 				Swap(cube, 3,0,1, 3,2,1);
 				Swap(cube, 3,0,2, 3,2,2);
 				SideCheck(cube, darr, dchk, dloc, s);
