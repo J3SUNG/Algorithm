@@ -21,7 +21,6 @@ public class Main {
 		int[] dy = {-1, -1, -1, 0, 0, 1, 1, 1};
 		int[] dx = {-1, 0, 1, -1, 1, -1, 0, 1};
 		Tree[] arr = new Tree[m];
-//		PriorityQueue<Tree> trees = new PriorityQueue<>((o1, o2) -> (o1.y==o2.y ? (o1.x==o2.x ? o1.z-o2.z : o1.x-o2.x) : o1.y-o2.y));
 		Queue<Tree> trees = new LinkedList<>();
 		Queue<Tree> temp = new LinkedList<>();
 		Queue<Tree> babyTree = new LinkedList<>();
@@ -39,7 +38,6 @@ public class Main {
 			int x = Integer.parseInt(st.nextToken()) - 1;
 			int z = Integer.parseInt(st.nextToken());
 			arr[i] = (new Tree(x, y, z));
-//			trees.add(new Tree(x, y, z));
 		}
 		Arrays.sort(arr, (o1, o2) -> (o1.y==o2.y ? (o1.x==o2.x ? o1.z-o2.z : o1.x-o2.x) : o1.y-o2.y));
 		for(int i=0; i<m; ++i) {
