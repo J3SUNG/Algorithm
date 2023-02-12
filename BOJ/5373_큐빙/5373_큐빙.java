@@ -10,7 +10,7 @@ public class Main {
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 		StringTokenizer st = new StringTokenizer(br.readLine());
 		int ts = Integer.parseInt(st.nextToken());
-		char[][][] cube = new char[6][3][3]; // 위/하양 w, 아래/노랑 y, 앞/빨강 r, 뒤/주황 o, 왼/초록 g, 오/파랑 b
+		char[][][] cube = new char[6][3][3]; // 위/하양 w 아래/노랑 y 앞/빨강 r 뒤/주황 o 왼/초록 g 오/파랑 b
 		while(ts>0) {
 			--ts;
 			Init(cube);
