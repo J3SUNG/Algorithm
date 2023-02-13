@@ -60,7 +60,7 @@ public class Main {
 					map[i][j] += temp[i][j];
 				}
 			}
-			int y = ay1 - 1; // 위
+			int y = ay1 - 1; 
 			int x = ax;
 			int d = 3;
 			while(true) {
@@ -78,7 +78,7 @@ public class Main {
 				y = nextY;
 				x = nextX;
 			}
-			y = ay2 + 1; // 아래
+			y = ay2 + 1; 
 			x = ax;
 			d = 1;
 			while(true) {
