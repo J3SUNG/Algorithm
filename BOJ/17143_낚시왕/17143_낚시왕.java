@@ -127,6 +127,7 @@ public class Main {
 		bw.write(ans + "");
 		bw.close();
 	}	
+
 	public static void initMap(int r, int c, int[][] map) {
 		for(int i=1; i<=r; ++i) {
 			for(int j=1; j<=c; ++j) {
@@ -134,6 +135,7 @@ public class Main {
 			}
 		}
 	}
+	
 	public static class Shark {
 		int r, c, s, d, z;
 		public Shark(int r, int c, int s, int d, int z) {
