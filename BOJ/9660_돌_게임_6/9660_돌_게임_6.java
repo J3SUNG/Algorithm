@@ -17,8 +17,7 @@ public class Main {
 		ans[3] = 1;
 		ans[4] = 1;
 		ans[5] = 1;
-		ans[6] = 0;
-		
+		ans[6] = 0;		
 		bw.write(ans[(int) n]==1?"SK":"CY");
 		bw.close();
 	}
