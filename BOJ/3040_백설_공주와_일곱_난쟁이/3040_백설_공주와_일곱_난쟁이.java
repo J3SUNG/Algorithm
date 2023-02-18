@@ -29,17 +29,15 @@ public class Main {
 			if(findNum > arr[left] + arr[right]) {
 				++left; 
 			} else {
-				--right;
+				--right; 
 			}
-		}
-		
+		}		
 		for(int i=0; i<9; ++i) {
 			if(man[i] == arr[left] || man[i] == arr[right]) {
 				continue;
 			}
 			bw.write(man[i] + "\n");
-		}
-				
+		}				
 		bw.close();
 	}
 }
