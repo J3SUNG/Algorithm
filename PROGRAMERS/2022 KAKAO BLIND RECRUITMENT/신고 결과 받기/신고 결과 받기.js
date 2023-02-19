@@ -1,7 +1,6 @@
 function solution(id_list, report, k) {
   let answer = [];
   let arr = [];
-  let num = [];
   let reportFrom = [];
   let prevFrom = "";
   let prevTo = "";
