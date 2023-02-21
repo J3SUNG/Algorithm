@@ -19,8 +19,7 @@ public class Main {
 			} else {
 				DP[i] = 1;
 			}
-		}
-		
+		}		
 		bw.write(DP[n]==1?"SK":"CY");
 		bw.close();
 	}
