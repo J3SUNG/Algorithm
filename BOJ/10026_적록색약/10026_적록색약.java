@@ -71,6 +71,7 @@ public class Main {
 			}
 		}
 	}
+	
 	public static void DFS2(int y, int x, int find) {
 		int[] dy = {0, 1, 0, -1};
 		int[] dx = {1, 0, -1, 0};
