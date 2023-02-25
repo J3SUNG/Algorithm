@@ -1,5 +1,3 @@
-package com.ssafy.test2;
-
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -9,7 +7,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
-public class test7 {
+public class Main {
 	static int ans = 0;
 	static int n;
 	static int m;
