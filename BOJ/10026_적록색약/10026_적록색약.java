@@ -16,9 +16,9 @@ public class Main {
 		n = Integer.parseInt(br.readLine());
 		map = new int[n][n];
 		visit = new int[n][n];
+
 		int cnt1 = 0;
-		int cnt2 = 0;
-		
+		int cnt2 = 0;		
 		for(int i=0; i<n; ++i) {
 			String st = br.readLine();
 			for(int j=0; j<n; ++j) {
