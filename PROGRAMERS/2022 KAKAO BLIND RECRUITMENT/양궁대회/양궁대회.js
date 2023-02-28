@@ -20,7 +20,6 @@ function solution(n, info) {
   }
   function DFS(index, value, sub, aScore, bScore) {
     answer[index] = sub + 1;
-
     for (let i = index + 1; i <= 10; ++i) {
       if (info[i] < value) {
         DFS(
