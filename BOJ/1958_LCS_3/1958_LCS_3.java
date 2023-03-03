@@ -8,8 +8,7 @@ public class Main {
   public static void main(String[] args) throws Exception{
     BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-    String ans = "";
-    
+    String ans = "";    
     String a = br.readLine();
     String b = br.readLine();
     String c = br.readLine();
