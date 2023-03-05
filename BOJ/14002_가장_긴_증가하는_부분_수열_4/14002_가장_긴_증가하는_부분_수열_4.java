@@ -47,8 +47,7 @@ public class Main {
 		for(int i=0; i<ansArr.length; ++i) {
 			bw.write(ansArr[i] + " ");
 		}
-		bw.write("\n");
-		
+		bw.write("\n");		
 		bw.close();
 	}
 }
