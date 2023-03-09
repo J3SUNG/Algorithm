@@ -47,6 +47,7 @@ public class Main {
 					if(nextY < 0 || nextX < 0 || nextY >= h || nextX >= w) {
 						break;
 					}
+					
 					if(map[nextY][nextX] == -3) {
 						ans = p.cnt;
 						while(!q.isEmpty()) {
