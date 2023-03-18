@@ -55,6 +55,7 @@ public class Main {
 		
 		return search(start, mid, left, right, index * 2) + search(mid + 1, end, left, right, index * 2 + 1);
 	}
+	
 	public static void update(int start, int end, int cur, long val, int index) {
 		if (cur < start || cur > end) {
 			return;
