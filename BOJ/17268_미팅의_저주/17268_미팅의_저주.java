@@ -15,7 +15,6 @@ public class Main {
 
 		int n = Integer.parseInt(br.readLine());
 		long[] DP = new long[n + 1];
-
 		DP[0] = 1;
 		DP[1] = 0;
 
