@@ -19,7 +19,7 @@ public class Main {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		bw = new BufferedWriter(new OutputStreamWriter(System.out));
 		StringTokenizer st = new StringTokenizer(br.readLine());
-
+		
 		n = Integer.parseInt(st.nextToken());
 		m = Integer.parseInt(st.nextToken());
 		al = new ArrayList<>();
