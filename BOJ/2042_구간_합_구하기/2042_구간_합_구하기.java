@@ -44,6 +44,7 @@ public class Main {
 		}
 		bw.close();
 	}
+	
 	public static long search(int start, int end, int left, int right, int index) {
 		if(end < left || start > right) {
 			return 0;
