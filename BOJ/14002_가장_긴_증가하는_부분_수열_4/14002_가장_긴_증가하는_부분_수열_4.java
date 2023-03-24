@@ -9,6 +9,7 @@ public class Main {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 		StringTokenizer st = null;
+		
 		int ans = 0;
 		int n = Integer.parseInt(br.readLine());
 		int[] arr = new int[n+1];
