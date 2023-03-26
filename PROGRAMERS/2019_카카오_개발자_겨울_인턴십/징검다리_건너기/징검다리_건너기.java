@@ -7,6 +7,7 @@ class Solution {
         int left = 987654321;
         int right = -1;
         int mid;
+        
         for(int i=0; i<stones.length; ++i){
             left = Math.min(left, stones[i]);
             right = Math.max(right, stones[i]);
