@@ -45,6 +45,7 @@ public class Main {
 				--size[index];
 				continue;
 			}
+			
 			bw.write(index + " ");
 			for (int i = 0; i < al.get(index).size(); ++i) {
 				q.add(al.get(index).get(i));
