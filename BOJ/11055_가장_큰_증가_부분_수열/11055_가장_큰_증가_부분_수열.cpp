@@ -8,8 +8,8 @@ int main(int argc, char *argv[])
 	int memo[1010] = { 0, };
 	int n;
 	int result = 0;
-	cin >> n;
 
+	cin >> n;
 	for (int i = 1; i <= n; ++i) {
 		cin >> sequence[i];
 		memo[i] = sequence[i];
