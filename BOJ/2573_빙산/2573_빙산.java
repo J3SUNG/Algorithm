@@ -64,14 +64,14 @@ public class Main {
 					}
 				}
 			}
-			
-			if(q.size() == 0) {
+
+			if (q.size() == 0) {
 				break;
 			}
 			cnt = 0;
 			DFS(q.peek());
-			for(int i=0; i<n; ++i) {
-				for(int j=0; j<m; ++j) {
+			for (int i = 0; i < n; ++i) {
+				for (int j = 0; j < m; ++j) {
 					visit[i][j] = 0;
 				}
 			}
