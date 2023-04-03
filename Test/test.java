@@ -7,10 +7,9 @@ public class test {
 	public static void main(String[] args) throws Exception {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-		    
-		System.out.println("HI");
 
-    bw.write("Hey im jeseong");
+		System.out.println("HI");
+		bw.write("Hey im jeseong");
 		bw.close();
 	}
 }
