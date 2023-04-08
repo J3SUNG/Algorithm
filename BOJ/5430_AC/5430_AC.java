@@ -26,6 +26,7 @@ public class Main {
 			if (arr[0].equals("")) {
 				arr = new String[0];
 			}
+			
 			for (int i = 0; i < arr.length; ++i) {
 				dq.add(Integer.parseInt(arr[i]));
 			}
