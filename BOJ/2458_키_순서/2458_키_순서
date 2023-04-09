@@ -30,6 +30,7 @@ public class Main {
 				if (i == j) {
 					continue;
 				}
+
 				for (int k = 1; k <= n; ++k) {
 					if (i == k || j == k) {
 						continue;
@@ -51,6 +52,7 @@ public class Main {
 					++cnt;
 				}
 			}
+
 			for (int j = 1; j <= n; ++j) {
 				if (i == j) {
 					continue;
@@ -59,6 +61,7 @@ public class Main {
 					++cnt;
 				}
 			}
+			
 			if (cnt == n - 1) {
 				++ans;
 			}
