@@ -44,6 +44,7 @@ public class Main {
 			if(DFS(i) == 1) {
 				++ans;
 			}
+
 			for(int j=1; j<=n; ++j) {
 				visit[j] = 0;
 			}
@@ -54,9 +55,11 @@ public class Main {
 			if(DFS(i) == 1) {
 				++add;
 			}
+
 			if(add >= k) {
 				break;
 			}
+
 			for(int j=1; j<=n; ++j) {
 				visit[j] = 0;
 			}
@@ -75,7 +78,6 @@ public class Main {
 		
 		for (int i = 0; i < al.get(user).size(); ++i) {
 			int job = al.get(user).get(i);
-
 			int next = work[job];
 			if (work[job] == 0 || DFS(next) == 1) {
 				work[job] = user;
