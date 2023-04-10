@@ -80,8 +80,7 @@ public class Main {
 		visit[user] = 1;
  
 		for (int i = 0; i < al.get(user).size(); ++i) {
-			int job = al.get(user).get(i);
- 
+			int job = al.get(user).get(i); 
 			int next = work[job];
 			if (work[job] == 0 || DFS(next) == 1) {
 				work[job] = user;
