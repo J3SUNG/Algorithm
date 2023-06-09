@@ -45,14 +45,12 @@ public class Main {
 			size[d.index] = Math.max(size[d.index], d.time);
 			if (cnt[d.index] > 0) {
 				continue;
-			}
-			
+			}			
 			for (int i = 0; i < al.get(d.index).size(); ++i) {
 				int next = al.get(d.index).get(i);
 				q.add(new Data(next, size[d.index] + time[next]));
 			}
 		}
-
 		for (int i = 1; i <= n; ++i) {
 			ans = Math.max(ans, size[i]);
 		}
