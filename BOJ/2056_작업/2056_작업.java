@@ -62,7 +62,6 @@ public class Main {
 	public static class Data {
 		int index;
 		int time;
-
 		public Data(int index, int time) {
 			this.index = index;
 			this.time = time;
