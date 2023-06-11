@@ -31,7 +31,6 @@ public class Main {
 			int brain = Integer.parseInt(st.nextToken());
 			sharks[i] = new Data(size, speed, brain);
 		}
-
 		for (int i = 1; i <= n; ++i) {
 			++visitCnt;
 			if (DFS(i) == 1) {
