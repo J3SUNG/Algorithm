@@ -73,7 +73,6 @@ public class Main {
 				&& a < b) {
 			return false;
 		}
-
 		if (sharks[a].size >= sharks[b].size && sharks[a].speed >= sharks[b].speed && sharks[a].brain >= sharks[b].brain) {
 			return true;
 		}
@@ -85,7 +84,6 @@ public class Main {
 		int size;
 		int speed;
 		int brain;
-
 		public Data(int size, int speed, int brain) {
 			this.size = size;
 			this.speed = speed;
