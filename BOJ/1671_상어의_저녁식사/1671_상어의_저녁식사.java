@@ -57,7 +57,6 @@ public class Main {
 			if (loc == i) {
 				continue;
 			}
-
 			if (eat(loc, i)) {
 				if (eat[i] == 0 || DFS(eat[i]) == 1) {
 					eat[i] = loc;
