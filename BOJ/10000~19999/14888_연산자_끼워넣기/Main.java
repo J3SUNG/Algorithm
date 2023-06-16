@@ -2,8 +2,8 @@ import java.util.Scanner;
 
 public class Main{
   static int n;
-  static int minAns = 987654321;
-  static int maxAns = -987654321;
+  static int minAns = 1987654321;
+  static int maxAns = -1987654321;
   static int[] arr;
   public static void main(String[] args){
     Scanner sc = new Scanner(System.in);
