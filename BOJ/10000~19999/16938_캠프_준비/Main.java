@@ -29,7 +29,7 @@ public class Main {
     }
 
     for (int i = 0; i < n; ++i) {
-      DFS(i, a[i], a[i], a[i], 1); // index, low, high, sum, 개수
+      DFS(i, a[i], a[i], a[i], 1); 
     }
 
     bw.write(result + "\n");
