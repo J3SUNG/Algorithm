@@ -17,7 +17,7 @@ public class Main {
 		StringTokenizer st = null;
 
 		n = Integer.parseInt(br.readLine());
-		po = new int[n+1];
+		po = new int[n + 1];
 		al = new ArrayList<>();
 		st = new StringTokenizer(br.readLine());
 
@@ -50,7 +50,7 @@ public class Main {
 	public static void checkArea(int index, int bool, int bit, int[] visit) {
 		for (int i = 0; i < al.get(index).size(); ++i) {
 			int nextIndex = al.get(index).get(i);
-			if(visit[nextIndex] == 1) {
+			if (visit[nextIndex] == 1) {
 				continue;
 			}
 			if ((bool == 0 && (bit & (1 << nextIndex)) == 0) || (bool == 1 && (bit & (1 << nextIndex)) != 0)) {
@@ -78,13 +78,13 @@ public class Main {
 				break;
 			}
 		}
-		for(int i=1; i<=n; ++i) {
-			if(visit[i] == 0) {
+		for (int i = 1; i <= n; ++i) {
+			if (visit[i] == 0) {
 				return;
 			}
-			if((bit & (1 << i)) == 0) {
+			if ((bit & (1 << i)) == 0) {
 				aVal += po[i];
-			} else if((bit & (1 << i)) != 0) {
+			} else if ((bit & (1 << i)) != 0) {
 				bVal += po[i];
 			}
 		}
