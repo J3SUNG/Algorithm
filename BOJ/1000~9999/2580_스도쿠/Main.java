@@ -99,18 +99,17 @@ public class Main {
         continue;
       }
       map[y][x] = i;
-      chk[0][y] = chk[0][y] | (1 << i);
-      chk[1][x] = chk[1][x] | (1 << i);
-      chk[2][(y / 3) * 3 + (x / 3)] = chk[2][(y / 3) * 3 + (x / 3)] | (1 << i);
+      chk[0][y] |= (1 << i);
+      chk[1][x] |= (1 << i);
+      chk[2][(y / 3) * 3 + (x / 3)] |= (1 << i);
 
       if (dfs(index + 1)) {
         result = true;
         break;
       } else {
-        map[y][x] = 0;
-        chk[0][y] = chk[0][y] & (1022 - (1 << i));
-        chk[1][x] = chk[1][x] & (1022 - (1 << i));
-        chk[2][(y / 3) * 3 + (x / 3)] = chk[2][(y / 3) * 3 + (x / 3)] & (1022 - (1 << i));
+        chk[0][y] &= ~(1 << i);
+        chk[1][x] &= ~(1 << i);
+        chk[2][(y / 3) * 3 + (x / 3)] &= ~(1 << i);
       }
     }
 
