@@ -78,6 +78,18 @@ public class Main {
       } else {
         ySize = tempSize;
       }
+
+      System.out.println();
+      for (int i = 0; i < ySize; ++i) {
+        for (int j = 0; j < xSize; ++j) {
+          System.out.print(map[i][j] + " ");
+        }
+        System.out.println();
+      }
+
+      if (result == 11) {
+        break;
+      }
     }
 
     bw.write(result + "\n");
