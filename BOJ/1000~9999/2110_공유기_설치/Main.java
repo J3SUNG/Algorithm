@@ -34,7 +34,6 @@ public class Main {
     int right = 1_000_000_000;
     while (left <= right) {
       int mid = (left + right) / 2;
-      System.out.println(left + " " + right + " " + mid);
       if (search(1, 0, 1, mid)) {
         left = mid + 1;
       } else {
