@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import java.util.*;
 import java.io.*;
 
@@ -87,3 +88,7 @@ public class Main {
     }
   }
 }
+=======
+
+      System.out.println(left + " " + right + " " + mid);
+>>>>>>> 137ac3ec157bbfc61e72f63c3a3e5a359cd1f47b
