@@ -2,54 +2,88 @@ import java.util.*;
 import java.io.*;
 
 public class Main {
-  static int result;
   static int n;
-  static int c;
-  static int[] arr;
-  static int[] dist;
+  static int w;
+  static int t;
+  static int k;
+  static int result;
 
   public static void main(String[] args) throws Exception {
     BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
     StringTokenizer st = new StringTokenizer(br.readLine());
 
-    result = 1_000_000_000;
     n = Integer.parseInt(st.nextToken());
-    c = Integer.parseInt(st.nextToken());
-    arr = new int[n];
-    dist = new int[n];
+    w = Integer.parseInt(st.nextToken());
+    t = Integer.parseInt(st.nextToken());
+    k = Integer.parseInt(st.nextToken());
+    result = 0;
+    int[] fire = new int[n];
 
-    arr[0] = Integer.parseInt(br.readLine());
-    for (int i = 1; i < n; ++i) {
-      arr[i] = Integer.parseInt(br.readLine());
+    st = new StringTokenizer(br.readLine());
+    for (int i = 0; i < n; ++i) {
+      fire[i] = Integer.parseInt(st.nextToken());
     }
 
-    Arrays.sort(arr);
-
-    for (int i = 1; i < n; ++i) {
-      dist[i] = arr[i] - arr[i - 1];
-    }
-
-    while (true) {
-      if (search(0, 0, 0, result)) {
-
-      }
-    }
+    dfs(w - 1, 1, fire);
 
     bw.write(result + "\n");
     bw.close();
   }
 
-  public static boolean search(int index, int prev, int cnt, int num) {
-    if (cnt == c) {
-      result = Math.min(result, num);
-      return true;
+  public static void dfs(int loc, int time, int[] fire) {
+    int cnt = 0;
+    int[] move = { -1, 0, 1 };
+    int[] temp = new int[n];
+
+    cnt = fireCalc(fire);
+
+    System.out.println("loc = " + loc + " time = " + time + " cnt = " + cnt);
+    if (cnt < n - k) {
+      return;
     }
 
-    if (dist[index] + prev >= num) {
-      return search(index + 1, 0, cnt + 1, num);
+    if (time == t) {
+      ++result;
     }
 
-    return false;
+    copyArr(fire, temp);
+
+    for (int i = 0; i < 3; ++i) {
+      int nextLoc = loc + move[i];
+
+      if (nextLoc < 0 || nextLoc >= n) {
+        continue;
+      }
+
+      dfs(nextLoc, time + 1, fire);
+    }
+  }
+
+  public static int fireCalc(int[] fire) {
+    int prev = 0;
+    int cnt = 0;
+    for (int i = 0; i < n; ++i) {
+      fire[i] = prev == 0 ? fire[i] - 2 : fire[i] - 1;
+
+      if (i + 1 < n) {
+        fire[i] = fire[i + 1] == 0 ? fire[i] - 1 : fire[i];
+      }
+
+      if (fire[i] < 0) {
+        fire[i] = 0;
+        ++cnt;
+      }
+    }
+
+    return cnt;
+  }
+
+  public static void copyArr(int[] fire, int[] temp) {
+    for (int i = 0; i < n; ++i) {
+      for (int j = 0; j < n; ++j) {
+        temp[i] = fire[i];
+      }
+    }
   }
 }
