@@ -81,7 +81,6 @@ public class Main {
     int[] my = { -1, 0, 1, 0 };
     int[] mx = { 0, 1, 0, -1 };
     boolean chk = false;
-    boolean endChk;
 
     if (y == ey && x == ex) {
       result = "YES";
@@ -93,18 +92,11 @@ public class Main {
       return false;
     }
 
-    endChk = false;
     for (int i = 0; i < 2; ++i) {
       int nextY = y + my[move[cnt][i]];
       int nextX = x + mx[move[cnt][i]];
 
       if (nextY < 0 || nextX < 0 || nextY >= n || nextX >= m || map[nextY][nextX] == 1) {
-        if (i == 1 && endChk) {
-          return false;
-        } else {
-          endChk = true;
-        }
-
         continue;
       } else {
         chk = dfs(nextY, nextX, cnt + 1);
