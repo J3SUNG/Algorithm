@@ -2,111 +2,156 @@ import java.util.*;
 import java.io.*;
 
 public class Main {
+  static BufferedReader br;
+  static BufferedWriter bw;
+  static StringTokenizer st;
   static int n;
   static int m;
-  static int moveCnt;
-  static int sy, sx;
-  static int ey, ex;
+  static int cnt;
+  static int result;
+  static int bombCnt;
+  static String str;
   static int[][] map;
-  static int[][] move;
-  static String result;
-  static int[] resultPath;
+  static int[][] visit;
 
   public static void main(String[] args) throws Exception {
-    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-    BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-    StringTokenizer st = null;
-
-    st = new StringTokenizer(br.readLine());
-    n = Integer.parseInt(st.nextToken());
-    m = Integer.parseInt(st.nextToken());
-    map = new int[n][m];
-    result = "NO";
-    String s;
-    char[] resultMapping = { 'W', 'D', 'S', 'A' };
-
-    for (int i = 0; i < n; ++i) {
-      s = br.readLine();
-
-      for (int j = 0; j < m; ++j) {
-        if (s.charAt(j) == '@') {
-          map[i][j] = 1;
-        } else if (s.charAt(j) == '.') {
-          map[i][j] = 0;
-        } else if (s.charAt(j) == 'D') {
-          map[i][j] = 0;
-          sy = i;
-          sx = j;
-        } else if (s.charAt(j) == 'Z') {
-          map[i][j] = 0;
-          ey = i;
-          ex = j;
-        }
-      }
-    }
-
-    moveCnt = Integer.parseInt(br.readLine());
-    move = new int[moveCnt][2];
-    resultPath = new int[moveCnt];
-
-    for (int i = 0; i < moveCnt; ++i) {
-      s = br.readLine();
-      for (int j = 0; j < 2; ++j) {
-        if (s.charAt(j * 2) == 'W') {
-          move[i][j] = 0;
-        } else if (s.charAt(j * 2) == 'A') {
-          move[i][j] = 3;
-        } else if (s.charAt(j * 2) == 'S') {
-          move[i][j] = 2;
-        } else if (s.charAt(j * 2) == 'D') {
-          move[i][j] = 1;
-        }
-      }
-    }
-
-    dfs(sy, sx, 0);
-
-    bw.write(result + "\n");
-
-    if (result.equals("YES")) {
-      for (int i = 0; i < moveCnt; ++i) {
-        bw.write(resultMapping[resultPath[i]] + " ");
-      }
-    }
-
-    bw.close();
+    init();
+    simulation();
   }
 
-  public static boolean dfs(int y, int x, int cnt) {
-    int[] my = { -1, 0, 1, 0 };
-    int[] mx = { 0, 1, 0, -1 };
-    boolean chk = false;
+  public static void init() throws Exception {
+    br = new BufferedReader(new InputStreamReader(System.in));
+    bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
-    if (y == ey && x == ex) {
-      result = "YES";
-      return true;
+    n = 12;
+    m = 6;
+    result = 0;
+    bombCnt = 1;
+    map = new int[n][m];
+    visit = new int[n][m];
+
+    for (int i = 0; i < n; ++i) {
+      str = br.readLine();
+      for (int j = 0; j < m; ++j) {
+        char c = str.charAt(j);
+        if (c == '.') {
+          map[i][j] = 0;
+        } else if (c == 'R') {
+          map[i][j] = 1;
+        } else if (c == 'G') {
+          map[i][j] = 2;
+        } else if (c == 'B') {
+          map[i][j] = 3;
+        } else if (c == 'Y') {
+          map[i][j] = 4;
+        }
+      }
+    }
+  }
+
+  public static void test() {
+    for (int i = 0; i < n; ++i) {
+      for (int j = 0; j < m; ++j) {
+        System.out.print(map[i][j] + " ");
+      }
+    }
+  }
+
+  public static void simulation() throws Exception {
+    while (bombCnt > 0) {
+      find();
+      gravity();
     }
 
-    if (cnt == moveCnt) {
-      return false;
+    print();
+  }
+
+  public static void gravity() {
+    if (bombCnt == 0) {
+      return;
     }
 
-    for (int i = 0; i < 2; ++i) {
-      int nextY = y + my[move[cnt][i]];
-      int nextX = x + mx[move[cnt][i]];
+    for (int j = 0; j < m; ++j) {
+      int index = -1;
+      for (int i = n - 1; i >= 0; --i) {
+        if (index == -1 && map[i][j] == 0) {
+          index = i;
+        }
 
-      if (nextY < 0 || nextX < 0 || nextY >= n || nextX >= m) {
-        chk = dfs(y, x, cnt + 1);
-      } else {
-        chk = dfs(nextY, nextX, cnt + 1);
+        if (index != -1 && map[i][j] > 0) {
+          map[index][j] = map[i][j];
+          map[i][j] = 0;
+          --index;
+        }
+      }
+    }
+  }
+
+  public static void find() {
+    bombCnt = 0;
+    for (int i = 0; i < n; ++i) {
+      for (int j = 0; j < m; ++j) {
+        if (map[i][j] > 0) {
+          cnt = 1;
+          initVisit();
+          bomb(i, j, map[i][j]);
+          if (cnt >= 4) {
+            ++bombCnt;
+            remove(i, j, map[i][j]);
+          }
+        }
+      }
+    }
+    result = bombCnt > 0 ? result + 1 : result;
+  }
+
+  public static void initVisit() {
+    for (int i = 0; i < n; ++i) {
+      for (int j = 0; j < m; ++j) {
+        visit[i][j] = 0;
+      }
+    }
+  }
+
+  public static void remove(int y, int x, int t) {
+    int[] my = { 0, 1, 0, -1 };
+    int[] mx = { 1, 0, -1, 0 };
+
+    map[y][x] = 0;
+
+    for (int i = 0; i < 4; ++i) {
+      int nextY = y + my[i];
+      int nextX = x + mx[i];
+
+      if (nextY < 0 || nextX < 0 || nextY >= n || nextX >= m || map[nextY][nextX] != t) {
+        continue;
       }
 
-      if (chk) {
-        resultPath[cnt] = move[cnt][i];
-        return true;
-      }
+      remove(nextY, nextX, t);
     }
+  }
 
-    return false;
+  public static void bomb(int y, int x, int t) {
+    int[] my = { 0, 1, 0, -1 };
+    int[] mx = { 1, 0, -1, 0 };
+
+    visit[y][x] = 1;
+
+    for (int i = 0; i < 4; ++i) {
+      int nextY = y + my[i];
+      int nextX = x + mx[i];
+
+      if (nextY < 0 || nextX < 0 || nextY >= n || nextX >= m || map[nextY][nextX] != t || visit[nextY][nextX] == 1) {
+        continue;
+      }
+      ++cnt;
+
+      bomb(nextY, nextX, t);
+    }
+  }
+
+  public static void print() throws Exception {
+    bw.write(result + "\n");
+    bw.close();
   }
 }
