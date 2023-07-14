@@ -4,7 +4,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 
 public class Main {
-  public static void main(String[] args) throws Exception{
+  public static void main(String[] args) throws Exception {
     BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
     String str = br.readLine();
@@ -28,18 +28,18 @@ public class Main {
           index -= len;
         } else {
         }
-      } 
+      }
       ++index;
     }
-    
+
     if (index == 0) {
       bw.write("FRULA");
     }
-    
+
     for (int i = 0; i < index; ++i) {
-      bw.write(result[i]);
+      bw.write(result);
     }
-    
+
     bw.close();
   }
 }
