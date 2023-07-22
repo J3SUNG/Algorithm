@@ -1,5 +1,6 @@
 import java.io.*;
 import java.util.*;
+
 public class Main {
   public static void main(String[] args) throws Exception {
     BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -13,15 +14,28 @@ public class Main {
     long d = Long.parseLong(st.nextToken());
     long result = Long.MAX_VALUE;
 
-    long result1 = (n / a) * b;
-    long mod1 = n % a;
-    result1 += Math.min((mod1 + a - 1) / a * b, (mod1 + c - 1) / c * d);
+    if (b * c < d * a) {
+      long temp;
+      temp = a;
+      a = c;
+      c = temp;
+      temp = b;
+      b = d;
+      d = temp;
+    }
 
-    long result2 = (n / c) * d;
-    long mod2 = n % c;
-    result2 += Math.min((mod2 + a - 1) / a * b, (mod2 + c - 1) / c * d);
+    for (int i = 0; i < c; ++i) {
+      long index = (long) Math.ceil((double) (n - i * a) / c);
 
-    result = Math.min(result1, result2);
+      if (index < 0) {
+        index = 0;
+      }
+      result = Math.min(result, i * b + index * d);
+
+      if (index == 0) {
+        break;
+      }
+    }
 
     bw.write(result + "\n");
     bw.close();
