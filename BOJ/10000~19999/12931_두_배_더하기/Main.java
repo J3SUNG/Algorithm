@@ -13,8 +13,8 @@ public class Main {
     int n = Integer.parseInt(br.readLine());
     int result = 0;
     ArrayList<Integer> al = new ArrayList<>();
-
     StringTokenizer st = new StringTokenizer(br.readLine());
+
     for (int i = 0; i < n; ++i) {
       int num = Integer.parseInt(st.nextToken());
       if (num == 0) {
@@ -28,8 +28,8 @@ public class Main {
     for (int i = 0; i < al.size(); ++i) {
       int mulCnt = 0;
       int addCnt = 0;
-
       int num = al.get(i);
+
       while (num > 1) {
         if (num % 2 == 0) {
           num /= 2;
@@ -39,8 +39,8 @@ public class Main {
           ++addCnt;
         }
       }
-      ++addCnt;
 
+      ++addCnt;
       mulMax = Math.max(mulMax, mulCnt);
       addMax += addCnt;
     }
