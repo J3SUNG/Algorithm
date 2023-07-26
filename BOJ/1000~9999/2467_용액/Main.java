@@ -6,10 +6,8 @@ public class Main {
     BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
-    int result = 0;
     int n = Integer.parseInt(br.readLine());
     int[] arr = new int[n];
-    int chk = 0;
     int goodSum = 2_000_000_001;
     int goodLeft = 0;
     int goodRight = 0;
