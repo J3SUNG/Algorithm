@@ -22,6 +22,7 @@ public class Main {
     int right = n - 1;
     while (left < right) {
       int sum = Math.abs(arr[left] + arr[right]);
+
       if (goodSum > sum) {
         goodSum = sum;
         goodLeft = left;
