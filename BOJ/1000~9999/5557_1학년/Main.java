@@ -43,6 +43,7 @@ public class Main {
     }
 
     int resultIndex = Integer.parseInt(st.nextToken());
+    
     bw.write(arr[resultIndex] + "\n");
     bw.close();
   }
