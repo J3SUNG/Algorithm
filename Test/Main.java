@@ -24,7 +24,6 @@ public class Main {
     M = Integer.parseInt(st.nextToken());
     N = Integer.parseInt(st.nextToken());
     L = Integer.parseInt(st.nextToken());
-
     x = new int[M];
 
     st = new StringTokenizer(br.readLine());
