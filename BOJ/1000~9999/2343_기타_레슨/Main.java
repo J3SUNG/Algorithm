@@ -23,31 +23,24 @@ public class Main {
     int right = 1_000_000_000;
     while (left <= right) {
       int mid = (left + right) / 2;
-      System.out.println("mid = " + mid);
       int start = 0;
       int sum = 0;
       int cnt = 0;
       for (int i = 1; i <= n; ++i) {
         if (prefixSum[i] - prefixSum[start] > mid) {
-          System.out.println(prefixSum[i] - prefixSum[start]);
-          sum = Math.max(sum, prefixSum[i] - prefixSum[start]);
-          start = i;
+          sum = Math.max(sum, prefixSum[i - 1] - prefixSum[start]);
+          start = i - 1;
           ++cnt;
         }
-        if (cnt > m) {
-          sum = 1_000_000_000;
-          break;
-        }
       }
-      System.out.println("HI");
-      System.out.println(cnt + " " + sum + " " + mid);
+      sum = Math.max(sum, prefixSum[n] - prefixSum[start]);
+      ++cnt;
 
       if (cnt > m) {
         left = mid + 1;
-        continue;
       } else if (cnt <= m) {
+        result = Math.min(result, sum);
         right = mid - 1;
-        continue;
       }
     }
 
