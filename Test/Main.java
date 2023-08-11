@@ -15,9 +15,11 @@ public class Main {
     N = Long.parseLong(st.nextToken());
     M = Long.parseLong(st.nextToken());
     time = new long[(int) N];
+
     for (int i = 0; i < N; i++) {
       time[i] = Long.parseLong(br.readLine());
     }
+
     long start = 1;
     long end = 1_000_000_000L * 1_000_000_000L;
     while (start <= end) {
