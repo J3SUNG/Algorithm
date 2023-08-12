@@ -25,12 +25,14 @@ public class Main {
     while (start <= end) {
       long mid = (start + end) / 2;
       long temp = M;
+      
       for (int i = 0; i < N; i++) {
         temp -= mid / time[i];
         if (temp <= 0) {
           break;
         }
       }
+
       if (temp <= 0) {
         end = mid - 1;
         answer = Math.min(answer, mid);
@@ -38,6 +40,7 @@ public class Main {
         start = mid + 1;
       }
     }
+
     System.out.println(answer);
   }
 }
