@@ -1,5 +1,4 @@
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.util.*;
 
 public class Main {
@@ -25,7 +24,7 @@ public class Main {
     while (start <= end) {
       long mid = (start + end) / 2;
       long temp = M;
-      
+
       for (int i = 0; i < N; i++) {
         temp -= mid / time[i];
         if (temp <= 0) {
