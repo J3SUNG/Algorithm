@@ -7,7 +7,6 @@ public class Main {
   static long answer = 1_000_000_000L * 1_000_000_000L;
 
   public static void main(String[] args) throws Exception {
-
     BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     StringTokenizer st = null;
     st = new StringTokenizer(br.readLine());
