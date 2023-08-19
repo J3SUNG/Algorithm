@@ -21,7 +21,7 @@ public class Main {
 
     Long left = 1L;
     Long right = 999999000001L * n;
-    result = 999999000001L * n;
+
     while (left <= right) {
       Long attack = a;
       Long maxHp = (left + right) / 2;
