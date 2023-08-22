@@ -50,6 +50,7 @@ class Solution {
       result.add(num);
       return true;
     }
+
     for (int i = 0; i < al.get(num).size(); ++i) {
       if (!visit[num][i]) {
         visit[num][i] = true;
@@ -60,6 +61,7 @@ class Solution {
         visit[num][i] = false;
       }
     }
+
     return false;
   }
 
