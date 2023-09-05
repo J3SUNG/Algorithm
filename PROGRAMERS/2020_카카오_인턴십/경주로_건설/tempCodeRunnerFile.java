@@ -1,0 +1,1 @@
+visit[ny][nx][d]
