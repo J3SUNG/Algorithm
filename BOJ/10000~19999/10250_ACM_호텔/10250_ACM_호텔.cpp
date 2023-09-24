@@ -22,6 +22,7 @@ int main(int argc, char *argv[])
     {
       x = h;
     }
+    
     if (!(n % h))
     {
       y -= 1;
