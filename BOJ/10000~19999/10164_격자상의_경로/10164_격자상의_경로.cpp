@@ -15,6 +15,7 @@ int move(int x, int y)
   {
     return 1;
   }
+  
   if (DP[y][x] == -1)
   { // 길이 없을 때
     return 0;
