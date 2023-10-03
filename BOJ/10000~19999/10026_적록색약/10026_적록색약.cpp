@@ -66,6 +66,7 @@ int main(int argc, char *argv[])
         DFS(map, i, j, c);
         ++count;
       }
+      
       if (cbMap[i][j] != 0)
       {
         int d = cbMap[i][j];
