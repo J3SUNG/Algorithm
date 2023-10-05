@@ -34,9 +34,11 @@ public class Main {
       if ((arr[cnt - 1][i] & 1) != 0 && i > 1) {
         arr[cnt][i - 1] = (1 | arr[cnt][i - 1]);
       }
+
       if ((arr[cnt - 1][i] & 2) != 0) {
         arr[cnt][i] = (2 | arr[cnt][i]);
       }
+
       if ((arr[cnt - 1][i] & 4) != 0 && i < n) {
         arr[cnt][i + 1] = (4 | arr[cnt][i + 1]);
       }
