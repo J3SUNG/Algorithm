@@ -11,31 +11,34 @@ public class Main {
 		int[] arr = new int[1000001];
 		int temp;
 		boolean chk;
-		
-		for(int i=0; i<10; ++i) {
-			ans[i] = (1<<i);
+
+		for (int i = 0; i < 10; ++i) {
+			ans[i] = (1 << i);
 			arr[i] = i;
 		}
+
 		int i = 10;
 		int index = 10;
-		while(true) {
-			if(ans[i/10] == 0) {
+
+		while (true) {
+			if (ans[i / 10] == 0) {
 				++i;
 				continue;
 			}
-			if((ans[i/10] & ans[i%10]) == 0) {
-				ans[i] = ans[i/10] | ans[i%10];
+			if ((ans[i / 10] & ans[i % 10]) == 0) {
+				ans[i] = ans[i / 10] | ans[i % 10];
 				arr[index] = i;
 				++index;
 			}
 			++i;
-			if(index > 1000000) {
+			if (index > 1000000) {
 				break;
 			}
 		}
-		while(true) {
+
+		while (true) {
 			int n = Integer.parseInt(br.readLine());
-			if(n == 0) {
+			if (n == 0) {
 				break;
 			}
 			bw.write(arr[n] + "\n");
