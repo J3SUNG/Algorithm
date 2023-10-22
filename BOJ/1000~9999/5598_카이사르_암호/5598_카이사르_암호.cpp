@@ -17,6 +17,7 @@ int main(int argc, char *argv[])
     {
       s[i] += 26;
     }
+    
     cout << s[i];
   }
 
