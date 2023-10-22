@@ -9,7 +9,6 @@ public class Main {
   static int m;
   static int result;
   static int[] arr;
-
   static int MAX;
 
   public static void main(String[] args) throws Exception {

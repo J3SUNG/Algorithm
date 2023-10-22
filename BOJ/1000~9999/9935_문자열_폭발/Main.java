@@ -24,7 +24,7 @@ public class Main {
             break;
           }
         }
-        
+
         if (chk) {
           index -= len;
         } else {
