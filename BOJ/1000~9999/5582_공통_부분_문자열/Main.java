@@ -36,13 +36,8 @@ public class Main {
       for (int j = 1; j <= b.length(); ++j) {
         if (a.charAt(i - 1) == b.charAt(j - 1)) {
           dp[i][j] = dp[i - 1][j - 1] + 1;
+          result = Math.max(result, dp[i][j]);
         }
-      }
-    }
-
-    for (int i = 1; i <= a.length(); ++i) {
-      for (int j = 1; j <= b.length(); ++j) {
-        result = Math.max(result, dp[i][j]);
       }
     }
   }
