@@ -10,7 +10,6 @@ public class Main {
     int num;
     int cycle;
     int index, d, d2;
-    int tmp;
     int l, r;
     int ans = 0;
 
