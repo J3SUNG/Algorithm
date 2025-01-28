@@ -1,44 +1,29 @@
-function makeMap(num, y, x, d, c, map) {
-  // d : 0 아래, 1 오른쪽, 2 위
-  let moveY = [1, 0, -1];
-  let moveX = [0, 1, 0];
-  let nextY = y;
-  let nextX = x;
-
-  for (let i = 0; i < c; ++i) {
-    nextY += moveY[d];
-    nextX += moveX[d];
-
-    map[nextY][nextX] = num + i;
-  }
-
-  d = (d + 1) % 3;
-  num += c;
-  --c;
-
-  if (c === 0) {
-    return;
-  }
-
-  if (d === 0) {
-    makeMap(num, nextY, nextY, d, c, map);
-  } else {
-    makeMap(num, nextY, nextX, d, c, map);
-  }
-}
-
 function solution(n) {
   let answer = [];
-  let map = Array.from({ length: n }, () => Array.from({ length: n }, () => null));
+  let map = Array.from({ length: n }, () => []);
 
-  makeMap(1, -1, 0, 0, n, map);
+  let y = -1;
+  let x = 0;
+  let num = 1;
+  let d = 0;
+  let dir = [
+    [1, 0],
+    [0, 1],
+    [-1, -1],
+  ];
 
-  for (let i = 0; i < n; ++i) {
-    for (let j = 0; j < n; ++j) {
-      if (map[i][j] === null) continue;
-
-      answer.push(map[i][j]);
+  for (let i = n; i > 0; --i) {
+    for (let j = 0; j < i; ++j) {
+      y += dir[d][0];
+      x += dir[d][1];
+      map[y][x] = num;
+      ++num;
     }
+    d = (d + 1) % 3;
+  }
+
+  for (const row of map) {
+    answer.push(...row);
   }
 
   return answer;
