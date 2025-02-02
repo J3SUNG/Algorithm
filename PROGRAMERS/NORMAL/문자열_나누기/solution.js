@@ -1,6 +1,6 @@
 function solution(s) {
   let answer = 0;
-  let cnt = 0;
+  let count = 0;
   let base = "";
 
   for (const char of s) {
