@@ -1,31 +1,29 @@
-function midPos(a, b) {
-  return (a + b) >> 1;
-}
-
-function isUniform(sy, sx, ey, ex, arr) {
-  let value = arr[sy - 1][sx - 1];
-  for (let i = sy - 1; i < ey; i++) {
-    for (let j = sx - 1; j < ex; j++) {
-      if (arr[i][j] !== value) return false;
-    }
-  }
-  return true;
+function calc(a, b, c = 0) {
+  return Math.floor((a + b) / 2) + c;
 }
 
 function getCount(sy, sx, ey, ex, arr) {
-  if (isUniform(sy, sx, ey, ex, arr)) {
+  if (sy === ey && sx === ex) {
     return arr[sy - 1][sx - 1] === 1 ? [0, 1] : [1, 0];
   }
 
-  let midY = midPos(sy, ey);
-  let midX = midPos(sx, ex);
+  let midY = calc(sy, ey);
+  let midX = calc(sx, ex);
 
-  let [zero, one] = [
+  const counts = [
     getCount(sy, sx, midY, midX, arr),
     getCount(sy, midX + 1, midY, ex, arr),
     getCount(midY + 1, sx, ey, midX, arr),
     getCount(midY + 1, midX + 1, ey, ex, arr),
-  ].reduce(([z, o], [newZ, newO]) => [z + newZ, o + newO], [0, 0]);
+  ];
+
+  let [zero, one] = counts.reduce(([z, o], [newZ, newO]) => [z + newZ, o + newO], [0, 0]);
+
+  if (one === 4 && zero === 0) {
+    return [0, 1];
+  } else if (one === 0 && zero === 4) {
+    return [1, 0];
+  }
 
   return [zero, one];
 }
