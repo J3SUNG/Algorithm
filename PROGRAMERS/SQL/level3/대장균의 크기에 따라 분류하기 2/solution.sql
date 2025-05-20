@@ -1,0 +1,20 @@
+WITH 
+A AS (
+    SELECT ID, ROW_NUMBER() OVER (ORDER BY SIZE_OF_COLONY DESC) AS RN
+    FROM ECOLI_DATA 
+),
+C AS (
+    SELECT COUNT(*) TOTAL
+    FROM ECOLI_DATA
+)          
+
+SELECT E.ID, CASE
+                WHEN RN / C.TOTAL <= 0.25 THEN 'CRITICAL'
+                WHEN RN / C.TOTAL <= 0.5 THEN 'HIGH'
+                WHEN RN / C.TOTAL <= 0.75 THEN 'MEDIUM'
+                ELSE 'LOW'
+                END COLONY_NAME
+FROM ECOLI_DATA E 
+JOIN A ON E.ID = A.ID
+JOIN C ON 1=1
+ORDER BY E.ID;
